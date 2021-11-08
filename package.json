@@ -2,7 +2,7 @@
   "name": "RTXStatus",
   "main": "main.js",
   "dependencies": {
-     "discord.js": "^13.2.0"
+     "discord.js": "^12.5.2"
   },
   "scripts": {
      "start": "node ."
