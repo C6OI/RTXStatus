@@ -57,8 +57,7 @@ const bufferServerData = buffer => {
             color: "ORANGE",
             title: ":flag_us: Failed to connect\n:flag_ru: Не удалось подключиться",
             description: ":flag_us: Server is overcrowded.\nWait for space to become free.\n\n:flag_ru: Сервер переполнен.\nДождитесь, пока освободится место.",
-            footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
-        });
+            footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}        });
 
         setState("OVERLOADED");
         serverConnection.destroy();
@@ -68,7 +67,7 @@ const bufferServerData = buffer => {
         updateStatus({
             color: "GREEN",
             title: ":flag_us: Connected\n\n:flag_ru: Подключено",
-            description: ":flag_us: Server is online.\nYou can play now!\n\n:flag_ru: Сервер в сети.\nВы можете играть!",
+            description: ":flag_us: Server is online.\nYou can play now!\n\n:flag_ru: Сервер в сети.\nВы можете играть!"
 			footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
     }
@@ -84,7 +83,7 @@ const connectToServer = () => {
     updateStatus({
         color: "ORANGE",
         title: ":flag_us: Please, wait\n\n:flag_ru: Пожалуйста, подождите",
-        description: ":flag_us: Connecting to server...\n\n:flag_ru: Подключение к серверу...",
+        description: ":flag_us: Connecting to server...\n\n:flag_ru: Подключение к серверу..."
 		footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
     });
 
@@ -94,7 +93,7 @@ const connectToServer = () => {
         updateStatus({
             color: "YELLOW",
             title: ":flag_us: Connected\n\n:flag_ru: Подключено",
-            description: ":flag_us: Waiting for initial packet...\n\n:flag_ru: Ожидание начального пакета...",
+            description: ":flag_us: Waiting for initial packet...\n\n:flag_ru: Ожидание начального пакета..."
 			footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
 
@@ -109,8 +108,7 @@ const connectToServer = () => {
             updateStatus({
                 color: "RED",
                 title: ":flag_us: Maintenance\n\n:flag_ru: Технические работы",
-                description: ":flag_us: Server on maintenance.\nWait for the server to start.\n\n:flag_ru: Сервер на тех. обслуживании.\nПодождите, пока его снова запустят.",
-				footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
+                description: ":flag_us: Server on maintenance.\nWait for the server to start.\n\n:flag_ru: Сервер на тех. обслуживании.\nПодождите, пока его снова запустят."
             });
         }
         setState("DISCONNECTED");
