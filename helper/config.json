@@ -1,3 +1,4 @@
 {
-    "token":"Discord bot token" 
+    "token":"Discord bot token",
+    "lang": "all"
 }
