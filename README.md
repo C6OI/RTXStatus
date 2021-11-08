@@ -5,3 +5,4 @@ Discord bot displaying the status of the Revive Tanki X server in real time
 # RTXStatus
 # RTXStatus
 >>>>>>> 13e5252 (Version 1.0)
+# RTXStatus
