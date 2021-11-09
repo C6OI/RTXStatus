@@ -1,0 +1,10 @@
+{
+  "name": "RTXStatus",
+  "main": "main.js",
+  "dependencies": {
+     "discord.js": "^12.5.2"
+  },
+  "scripts": {
+     "start": "node ."
+  }
+}

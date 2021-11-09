@@ -3,14 +3,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./helper/config.json');
-const token = config.token;
 const { createConnection, createServer, Socket } = require("net");
 const { createServer: createHTTPServer, request } = require("http");
 const { createInterface } = require("readline");
+if (!["ru", "en", "all"].includes(config.lang)) delete config.lang;
+const token = config.token;
+const lang = require("./helper/lang")[config.lang ?? "all"];
+const ip = config.serverIP;
+const channelsID = config.channels;
 
 const trace = true;
 
-const host = ""; // TankiX server IP
+const host = ip; // TankiX server IP
 const port = 5050;
 
 const retryTimeout = 10000;
@@ -55,8 +59,8 @@ const bufferServerData = buffer => {
         console.log("server overloaded");
         updateStatus({
             color: "ORANGE",
-            title: ":flag_us: Failed to connect\n:flag_ru: Не удалось подключиться",
-            description: ":flag_us: Server is overcrowded.\nWait for space to become free.\n\n:flag_ru: Сервер переполнен.\nДождитесь, пока освободится место.",
+            title: lang["connectfailed"],
+            description: lang["overcrowded"],
             footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
 
@@ -67,8 +71,8 @@ const bufferServerData = buffer => {
         setState("CONNECTED");
         updateStatus({
             color: "GREEN",
-            title: ":flag_us: Connected\n\n:flag_ru: Подключено",
-            description: ":flag_us: Server is online.\nYou can play now!\n\n:flag_ru: Сервер в сети.\nВы можете играть!",
+            title: lang["connected"],
+            description: lang["serverisonline"],
 			footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
     }
@@ -83,8 +87,8 @@ const connectToServer = () => {
     console.log("connecting to server...");
     updateStatus({
         color: "ORANGE",
-        title: ":flag_us: Please, wait\n\n:flag_ru: Пожалуйста, подождите",
-        description: ":flag_us: Connecting to server...\n\n:flag_ru: Подключение к серверу...",
+        title: lang["pleasewait"],
+        description: lang["connecting"],
 		footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
     });
 
@@ -93,8 +97,8 @@ const connectToServer = () => {
         console.log("connected to server");
         updateStatus({
             color: "YELLOW",
-            title: ":flag_us: Connected\n\n:flag_ru: Подключено",
-            description: ":flag_us: Waiting for initial packet...\n\n:flag_ru: Ожидание начального пакета...",
+            title: lang["connected"],
+            description: ["waiting"],
 			footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
 
@@ -108,8 +112,8 @@ const connectToServer = () => {
         if (state !== "OVERLOADED") {
             updateStatus({
                 color: "RED",
-                title: ":flag_us: Maintenance\n\n:flag_ru: Технические работы",
-                description: ":flag_us: Server on maintenance.\nWait for the server to start.\n\n:flag_ru: Сервер на тех. обслуживании.\nПодождите, пока его снова запустят.",
+                title: lang["maintenance"],
+                description: lang["serverisonmaintenance"],
 				footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
             });
         }
@@ -133,7 +137,7 @@ async function updateStatus(embed) {
             embed: embed
         };
 
-        const channels = ["", ""]; // Discord channels ID
+        const channels = channelsID; // Discord channels ID
         if (!messages)
             messages = Promise.all(channels.map(id => client.channels.resolve(id).send("", options)))
                 .then(x => messages = x);
