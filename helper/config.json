@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "token": "Discord bot token",
     "lang": "all",
     "serverIP": "135.125.181.45",
     "channels": ["877583603096252548", "905476150355165214"]
+=======
+    "token":"Discord bot token",
+    "lang": "all"
+>>>>>>> 2dbdb3b66e04c37a305e2a23377bb1e071435694
 }

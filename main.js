@@ -59,7 +59,7 @@ const bufferServerData = buffer => {
         console.log("server overloaded");
         updateStatus({
             color: "ORANGE",
-            title: lang["connectfailed"],
+            title: lang["connectFailed"],
             description: lang["overcrowded"],
             footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
@@ -72,7 +72,7 @@ const bufferServerData = buffer => {
         updateStatus({
             color: "GREEN",
             title: lang["connected"],
-            description: lang["serverisonline"],
+            description: lang["serveIsOnline"],
 			footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
         });
     }
@@ -87,7 +87,7 @@ const connectToServer = () => {
     console.log("connecting to server...");
     updateStatus({
         color: "ORANGE",
-        title: lang["pleasewait"],
+        title: lang["pleaseWait"],
         description: lang["connecting"],
 		footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
     });
@@ -113,7 +113,7 @@ const connectToServer = () => {
             updateStatus({
                 color: "RED",
                 title: lang["maintenance"],
-                description: lang["serverisonmaintenance"],
+                description: lang["serverIsOnMaintenance"],
 				footer: {text: "Developed by C6OI#6060", iconURL: "https://cdn.discordapp.com/attachments/714193973509357600/907229588906704956/New_Logo_2.png"}
             });
         }
